@@ -86,4 +86,25 @@ class Day1Test {
         assertEquals(actual, expected)
     }
 
+    @Test
+    fun givenRightInputCalculateFrequencyOfValue() {
+        val rightInput = listOf(
+            2,
+            2,
+            6,
+            6,
+            6,
+            10,
+            12
+        )
+        val expected = mapOf(
+            2 to 2,
+            6 to 3,
+            10 to 1,
+            12 to 1
+        )
+        val actual = getFrequencyMapOfValuesInRightSide(rightInput)
+        assertEquals(actual, expected)
+    }
+
 }

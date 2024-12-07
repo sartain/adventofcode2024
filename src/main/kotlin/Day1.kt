@@ -40,3 +40,12 @@ fun splitNumbersGivenString(input: String): List<Int> {
         .map { e -> e.toInt() }
         .toList()
 }
+
+fun getFrequencyMapOfValuesInRightSide(sortedRightInput: List<Int>): Map<Int, Int> {
+    val map = mutableMapOf<Int, Int>()
+    for (inputNumber in sortedRightInput) {
+        val currentCount = map[inputNumber] ?: 0
+        map[inputNumber] = currentCount + 1
+    }
+    return map
+}
