@@ -1,3 +1,4 @@
+import kotlin.math.abs
 import kotlin.streams.toList
 
 fun splitNumbersGivenString(input: String): List<Int> {
@@ -19,4 +20,12 @@ fun getSortedRightSideGivenListOfNumbers(input: List<String>): List<Int> {
         .map { inputString -> splitNumbersGivenString(inputString)[1] }
         .sorted()
         .toList()
+}
+
+fun getTotalDifferenceAcrossAllIndexes(leftInput: List<Int>, rightInput: List<Int>): Int {
+    var total = 0
+    rightInput.forEachIndexed { index, right ->
+        total += abs(right.minus(leftInput[index]))
+    }
+    return total
 }

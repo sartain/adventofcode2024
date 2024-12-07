@@ -51,4 +51,25 @@ class Day1Test {
         assertEquals(actual, expected)
     }
 
+    @Test
+    fun givenSortedListsFindTotalDifferenceBetweenEachIndex() {
+        val leftInput = listOf(
+            10,
+            20,
+            30,
+            40,
+            50
+        )
+        val rightInput = listOf(
+            15, //5
+            23, //8
+            31, //9
+            40, //9
+            49 //10
+        )
+        val expected = 10
+        val actual = getTotalDifferenceAcrossAllIndexes(leftInput, rightInput)
+        assertEquals(actual, expected)
+    }
+
 }
