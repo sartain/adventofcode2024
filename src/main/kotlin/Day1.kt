@@ -7,14 +7,16 @@ fun splitNumbersGivenString(input: String): List<Int> {
         .toList()
 }
 
-fun getLeftSideGivenListOfNumbers(input: List<String>): List<Int> {
+fun getSortedLeftSideGivenListOfNumbers(input: List<String>): List<Int> {
     return input.stream()
         .map { inputString -> splitNumbersGivenString(inputString)[0] }
+        .sorted()
         .toList()
 }
 
-fun getRightSideGivenListOfNumbers(input: List<String>): List<Int> {
+fun getSortedRightSideGivenListOfNumbers(input: List<String>): List<Int> {
     return input.stream()
         .map { inputString -> splitNumbersGivenString(inputString)[1] }
+        .sorted()
         .toList()
 }

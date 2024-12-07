@@ -12,42 +12,42 @@ class Day1Test {
     }
 
     @Test
-    fun givenListOfInputsGetLeftSide() {
+    fun givenSortedListOfInputsGetLeftSide() {
         val input = listOf(
-            "1    2",
+            "3    2",
             "2    5",
-            "6    8",
-            "9    5666",
+            "9    8",
+            "6    5666",
             "5655    5"
         )
         val expected = listOf(
-            1,
             2,
+            3,
             6,
             9,
             5655
         )
-        val actual = getLeftSideGivenListOfNumbers(input)
+        val actual = getSortedLeftSideGivenListOfNumbers(input)
         assertEquals(actual, expected)
     }
 
     @Test
-    fun givenListOfInputsGetRightSide() {
+    fun givenSortedListOfInputsGetRightSide() {
         val input = listOf(
             "1    2",
-            "2    5",
-            "6    8",
+            "2    8",
+            "6    5",
             "9    5666",
-            "5655    5"
+            "5655    1"
         )
         val expected = listOf(
+            1,
             2,
             5,
             8,
-            5666,
-            5
+            5666
         )
-        val actual = getRightSideGivenListOfNumbers(input)
+        val actual = getSortedRightSideGivenListOfNumbers(input)
         assertEquals(actual, expected)
     }
 
