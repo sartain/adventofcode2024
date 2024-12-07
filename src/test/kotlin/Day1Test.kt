@@ -107,4 +107,51 @@ class Day1Test {
         assertEquals(actual, expected)
     }
 
+    @Test
+    fun givenLeftInputAndFrequencyMapCalculateSimilarityScore() {
+        val leftInput = listOf(
+            1
+        )
+        val frequencyMap = mapOf(
+            1 to 2
+        )
+        val expected = 2
+        val actual = calculateSimilarityScoreGivenLeftAndFrequencyMap(leftInput, frequencyMap)
+        assertEquals(actual, expected)
+    }
+
+    @Test
+    fun givenLeftInputAndFrequencyMapCalculateSimilarityScoreCalculateSum() {
+        val leftInput = listOf(
+            1,
+            5,
+            5,
+            10
+        )
+        val frequencyMap = mapOf(
+            1 to 2,
+            5 to 1,
+            9 to 7
+        )
+        val expected = 12
+        val actual = calculateSimilarityScoreGivenLeftAndFrequencyMap(leftInput, frequencyMap)
+        assertEquals(actual, expected)
+    }
+
+    @Test
+    fun givenPuzzleInputCalculateSimilarityScoreCalculateSum() {
+        val puzzleInput = listOf(
+            "1   5",
+            "10   5",
+            "5   1",
+            "6   9",
+            "5   12"
+        )
+        val expected = 21
+        val actual = getTotalSimilarityScoreGivenPuzzleInput(puzzleInput)
+        assertEquals(expected, actual)
+    }
+
+
+
 }

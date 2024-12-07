@@ -1,9 +1,10 @@
 import kotlin.math.abs
 import kotlin.streams.toList
 
-fun completeDay1Part1() {
+fun completeDay1() {
     val puzzleInput = openFileAndSplitIntoLines(1)
     println("Part One: " + getTotalDifferenceAcrossAllIndexesGivenPuzzleInput(puzzleInput))
+    println("Part Two: " + getTotalSimilarityScoreGivenPuzzleInput(puzzleInput))
 }
 
 fun getTotalDifferenceAcrossAllIndexesGivenPuzzleInput(input: List<String>): Int {
@@ -41,6 +42,13 @@ fun splitNumbersGivenString(input: String): List<Int> {
         .toList()
 }
 
+fun getTotalSimilarityScoreGivenPuzzleInput(puzzleInput: List<String>): Int {
+    val leftSide = getSortedLeftSideGivenListOfNumbers(puzzleInput)
+    val rightSide = getSortedRightSideGivenListOfNumbers(puzzleInput)
+    val frequencyMap = getFrequencyMapOfValuesInRightSide(rightSide)
+    return calculateSimilarityScoreGivenLeftAndFrequencyMap(leftSide, frequencyMap)
+}
+
 fun getFrequencyMapOfValuesInRightSide(sortedRightInput: List<Int>): Map<Int, Int> {
     val map = mutableMapOf<Int, Int>()
     for (inputNumber in sortedRightInput) {
@@ -48,4 +56,14 @@ fun getFrequencyMapOfValuesInRightSide(sortedRightInput: List<Int>): Map<Int, In
         map[inputNumber] = currentCount + 1
     }
     return map
+}
+
+fun calculateSimilarityScoreGivenLeftAndFrequencyMap(
+    leftInput: List<Int>,
+    frequencyMap: Map<Int, Int>
+): Int {
+    return leftInput.stream()
+        .map { leftNumber -> leftNumber * (frequencyMap[leftNumber] ?: 0)}
+        .toList()
+        .sum()
 }
