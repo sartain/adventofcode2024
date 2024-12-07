@@ -5,7 +5,7 @@ class Day1Test {
 
     @Test
     fun splitNumbersGivenWhitespace() {
-        val input = "12345    67892"
+        val input = "12345   67892"
         val expected = listOf(12345, 67892)
         val actual = splitNumbersGivenString(input)
         assertEquals(actual, expected)
@@ -14,11 +14,11 @@ class Day1Test {
     @Test
     fun givenSortedListOfInputsGetLeftSide() {
         val input = listOf(
-            "3    2",
-            "2    5",
-            "9    8",
-            "6    5666",
-            "5655    5"
+            "3   2",
+            "2   5",
+            "9   8",
+            "6   5666",
+            "5655   5"
         )
         val expected = listOf(
             2,
@@ -34,11 +34,11 @@ class Day1Test {
     @Test
     fun givenSortedListOfInputsGetRightSide() {
         val input = listOf(
-            "1    2",
-            "2    8",
-            "6    5",
-            "9    5666",
-            "5655    1"
+            "1   2",
+            "2   8",
+            "6   5",
+            "9   5666",
+            "5655   1"
         )
         val expected = listOf(
             1,
@@ -69,6 +69,20 @@ class Day1Test {
         )
         val expected = 10
         val actual = getTotalDifferenceAcrossAllIndexes(leftInput, rightInput)
+        assertEquals(actual, expected)
+    }
+
+    @Test
+    fun givenPuzzleInputFindTotalDifferenceBetweenEachIndex() {
+        val input = listOf(
+            "10   23",
+            "20   15",
+            "50   49",
+            "30   40",
+            "40   31"
+        )
+        val expected = 10
+        val actual = getTotalDifferenceAcrossAllIndexesGivenPuzzleInput(input)
         assertEquals(actual, expected)
     }
 
