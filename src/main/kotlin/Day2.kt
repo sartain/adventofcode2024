@@ -1,8 +1,19 @@
-import java.util.*
 import kotlin.math.abs
 
 fun completeDay2() {
     givenInputPrintCountOfSafeReports()
+    givenInputPrintCountOfSafeReportsWithDampener()
+}
+
+fun givenInputPrintCountOfSafeReportsWithDampener() {
+    val puzzleInput = openFileAndSplitIntoLines(2)
+    println("Part Two: " + countNumberOfSafeReportsWithDampener(puzzleInput))
+}
+
+fun countNumberOfSafeReportsWithDampener(inputList: List<String>): Int {
+    return inputList.map { input -> givenInputStringGetListOfNumbers(input) }
+        .filter { report -> givenReportMarkSafetyWithDampener(report) }
+        .size
 }
 
 fun givenInputPrintCountOfSafeReports() {
@@ -12,7 +23,7 @@ fun givenInputPrintCountOfSafeReports() {
 
 fun countNumberOfSafeReports(inputList: List<String>): Int {
     return inputList.map { input -> givenInputStringGetListOfNumbers(input) }
-        .filter {report -> givenReportMarkSafety(report)}
+        .filter { report -> givenReportMarkSafety(report) }
         .size
 }
 
@@ -40,4 +51,14 @@ fun givenReportMarkSafety(report: List<Int>): Boolean {
         }
         return true
     }
+}
+
+fun givenReportMarkSafetyWithDampener(report: List<Int>): Boolean {
+    for (indexedValue in report.withIndex()) {
+        val index = indexedValue.index
+        if (givenReportMarkSafety(report.filterIndexed { i, _ -> i != index})) {
+            return true
+        }
+    }
+    return givenReportMarkSafety(report)
 }
