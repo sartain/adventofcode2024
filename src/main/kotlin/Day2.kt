@@ -1,6 +1,15 @@
 import java.util.*
 import kotlin.math.abs
 
+fun completeDay2() {
+    givenInputPrintCountOfSafeReports()
+}
+
+fun givenInputPrintCountOfSafeReports() {
+    val puzzleInput = openFileAndSplitIntoLines(2)
+    println("Part One: " + countNumberOfSafeReports(puzzleInput))
+}
+
 fun countNumberOfSafeReports(inputList: List<String>): Int {
     return inputList.map { input -> givenInputStringGetListOfNumbers(input) }
         .filter {report -> givenReportMarkSafety(report)}
