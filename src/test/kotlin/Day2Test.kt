@@ -41,4 +41,17 @@ class Day2Test {
         assertFalse(actual)
     }
 
+    @Test
+    fun givenListOfReportsCountSafe() {
+        val listOfReports = listOf(
+            "1 2",
+            "20 30",
+            "31 30 29",
+            "2 1 0"
+        )
+        val expected = 3
+        val actual = countNumberOfSafeReports(listOfReports)
+        assertEquals(expected, actual)
+    }
+
 }

@@ -1,6 +1,12 @@
 import java.util.*
 import kotlin.math.abs
 
+fun countNumberOfSafeReports(inputList: List<String>): Int {
+    return inputList.map { input -> givenInputStringGetListOfNumbers(input) }
+        .filter {report -> givenReportMarkSafety(report)}
+        .size
+}
+
 fun givenInputStringGetListOfNumbers(input: String): List<Int> {
     return input.split(" ")
         .map { e -> e.toInt() }
